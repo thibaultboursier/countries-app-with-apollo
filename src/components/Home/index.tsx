@@ -1,5 +1,6 @@
 import React, { useCallback } from "react";
 import { useQuery } from "@apollo/react-hooks";
+import Alert from "react-bootstrap/Alert";
 import { CountryList } from "../CountryList";
 import { Country } from "../../models";
 import { GET_COUNTRIES } from "../../queries/countries";
@@ -20,7 +21,7 @@ export const Home: React.FC = () => {
   }
 
   if (error) {
-    return <p>An error occured.</p>;
+    return <Alert variant="danger">An error occured.</Alert>;
   }
 
   return data ? (

@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { gql } from "apollo-boost";
+import gql from "graphql-tag.macro";
 import { useQuery } from "@apollo/react-hooks";
 import { CountryList } from "../CountryList";
 import { Country } from "../../models";
@@ -37,8 +37,6 @@ export const Home: React.FC = () => {
   }
 
   return data ? (
-    <>
-      <CountryList countries={data.countries} onRefresh={onRefresh} />
-    </>
+    <CountryList countries={data.countries} onRefresh={onRefresh} />
   ) : null;
 };

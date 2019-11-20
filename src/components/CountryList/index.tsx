@@ -17,9 +17,15 @@ type Props = {
 export const CountryList: React.FC<Props> = memo(({ countries, onRefresh }) => {
   const [filteredCountries, setFilteredCountries] = useState(countries);
   const onSearch = useCallback(
-    ({ target: { value } }) => {
+    ({ target }) => {
+      const value = target.value.toLowerCase();
+
       setFilteredCountries(() =>
-        countries.filter(({ name }) => name.toLowerCase().includes(value))
+        countries.filter(
+          ({ code, name }) =>
+            name.toLowerCase().includes(value) ||
+            code.toLowerCase().includes(value)
+        )
       );
     },
     [countries]
@@ -45,7 +51,7 @@ export const CountryList: React.FC<Props> = memo(({ countries, onRefresh }) => {
             <Col sm={10}>
               <Form.Control
                 onChange={onSearch}
-                placeholder="Enter country name"
+                placeholder="Enter country name or country code"
                 type="text"
               />
             </Col>

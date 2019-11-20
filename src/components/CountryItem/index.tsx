@@ -12,7 +12,7 @@ export const CountryItem: React.FC<Props> = ({
 }) => (
   <Card className="p-3">
     <Card.Body>
-      <Card.Title>
+      <Card.Title className="text-truncate" title={name}>
         {emoji} {name}
       </Card.Title>
       <Card.Text>

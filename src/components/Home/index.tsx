@@ -14,7 +14,7 @@ export const Home: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="mx-auto spinner-grow text-primary" role="status">
+      <div className="d-block mx-auto spinner-grow text-primary" role="status">
         <span className="sr-only">Loading countries...</span>
       </div>
     );
